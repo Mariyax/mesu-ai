@@ -26,8 +26,8 @@ const nextConfig = {
       },
       // Keep any other existing domains you have configured
     ],
-    basePath: "/book-inventory-shared", 
-  assetPrefix: "/book-inventory-shared/", 
+    basePath: "/mesu-ai", 
+  assetPrefix: "/mesu-ai/", 
   },
   // Add URL rewriting to change the visible link
   async rewrites() {
