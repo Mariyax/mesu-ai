@@ -1,8 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: "export", 
+  output: "export", // Enable static export for GitHub Pages
+  basePath: "/mesu-ai", // Move to root level - matches your GitHub repo name
+  assetPrefix: "/mesu-ai/", // Move to root level - matches your GitHub repo name
   images: {
-    unoptimized: true, 
+    unoptimized: true, // Required for static export
     remotePatterns: [
       {
         protocol: 'https',
@@ -24,12 +26,9 @@ const nextConfig = {
         hostname: 'm.media-amazon.com',
         pathname: '/**',
       },
-      // Keep any other existing domains you have configured
     ],
-    basePath: "/mesu-ai", 
-  assetPrefix: "/mesu-ai/", 
   },
-  // Add URL rewriting to change the visible link
+  // URL rewriting - keep this for when running in dev mode
   async rewrites() {
     return [
       {
@@ -38,7 +37,7 @@ const nextConfig = {
       },
     ];
   },
-  // Update metadata for the site
+  // Metadata headers
   async headers() {
     return [
       {
