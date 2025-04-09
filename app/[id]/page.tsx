@@ -48,6 +48,21 @@ export default async function Page(
   const params = await props.params;
   const book = await fetchBookById(params.id);
 
+  if (!book) {
+    return (
+      <ScrollArea className="px-4 h-full">
+        <Button variant="ghost" className="mb-4" asChild>
+          <Link href={`/?${stringifySearchParams(searchParams)}`}>
+            <ArrowLeftIcon className="mr-2 h-4 w-4" /> Back to Books
+          </Link>
+        </Button>
+        <div className="flex justify-center items-center h-64">
+          <p className="text-xl text-gray-500">Book not found</p>
+        </div>
+      </ScrollArea>
+    );
+  }
+
   return (
     <ScrollArea className="px-4 h-full">
       <Button variant="ghost" className="mb-4" asChild>
